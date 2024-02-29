@@ -500,10 +500,10 @@
                 <span class="w-9 h-9 rounded-circle d-grid place-content-center bg-primary-300 clr-neutral-0 flex-shrink-0">
                   <span class="material-symbols-outlined mat-icon fw-200"> arrow_right_alt </span>
                 </span>
-                <span class="h5 lh-1 m-0 clr-primary-400 fw-semibold"> مرافق الطيران </span>
+                <span class="h5 lh-1 m-0 clr-primary-400 fw-semibold"> {{__("strings.flight_facilities_head")}}</span>
               </span>
-              <h2 class="mt-4 mb-6"> سافر براحة مع مرافق الطيران </h2>
-              <p class="mb-0"> في فلايت فاسيليتس، نحن نؤمن بأن رحلتك يجب أن تكون ممتعة تمامًا مثل وجهتك. </p>
+              <h2 class="mt-4 mb-6">  {{__("strings.flight_facilities_title")}}</h2>
+              <p class="mb-0"> {{__("strings.flight_facilities_desc")}} </p>
             </div>
           </div>
         </div>
@@ -514,57 +514,57 @@
         <div class="col-md-4 col-xl-3">
           <div class="rounded-4 p-6 p-xl-8 text-center :box-shadow">
             <img src="{{asset('assets/img/duotone-breakfast.png')}}" alt="image" class="img-fluid mx-auto mb-6">
-            <h4 class="mb-4"> إفطار </h4>
-            <p class="mb-0"> تقدم شركة الطيران لدينا مجموعة واسعة من الوجهات، ومرنة </p>
+            <h4 class="mb-4">  {{__("strings.flight_facilities4_title")}} </h4>
+            <p class="mb-0"> {{__("strings.flight_facilities_card_desc")}}</p>
           </div>
         </div>
         <div class="col-md-4 col-xl-3">
           <div class="rounded-4 p-6 p-xl-8 text-center :box-shadow">
             <img src="{{asset('assets/img/duotone-seat.png')}}" alt="image" class="img-fluid mx-auto mb-6">
-            <h4 class="mb-4"> مقاعد مريحة </h4>
-            <p class="mb-0"> تقدم شركة الطيران لدينا مجموعة واسعة من الوجهات، ومرنة </p>
+            <h4 class="mb-4"> {{__("strings.flight_facilities3_title")}}</h4>
+            <p class="mb-0"> {{__("strings.flight_facilities_card_desc")}}</p>
           </div>
         </div>
         <div class="col-md-4 col-xl-3">
           <div class="rounded-4 p-6 p-xl-8 text-center :box-shadow">
             <img src="{{asset('assets/img/duotone-wifi.png')}}" alt="image" class="img-fluid mx-auto mb-6">
-            <h4 class="mb-4"> WiFi غير محدود </h4>
-            <p class="mb-0">WiFi غير محدود تقدم شركة الطيران لدينا مجموعة واسعة من الوجهات، ومرنة </p>
+            <h4 class="mb-4"> {{__("strings.flight_facilities2_title")}}</h4>
+            <p class="mb-0">{{__("strings.flight_facilities_card_desc")}}</p>
           </div>
         </div>
         <div class="col-md-4 col-xl-3">
           <div class="rounded-4 p-6 p-xl-8 text-center :box-shadow">
             <img src="{{asset('assets/img/duotone-drinks.png')}}" alt="image" class="img-fluid mx-auto mb-6">
-            <h4 class="mb-4"> المشروبات الباردة </h4>
-            <p class="mb-0"> تقدم شركة الطيران لدينا مجموعة واسعة من الوجهات، ومرنة </p>
+            <h4 class="mb-4"> {{__("strings.flight_facilities1_title")}}</h4>
+            <p class="mb-0"> {{__("strings.flight_facilities_card_desc")}}</p>
           </div>
         </div>
         <div class="col-md-4 col-xl-3">
           <div class="rounded-4 p-6 p-xl-8 text-center :box-shadow">
             <img src="{{asset('assets/img/duotone-coffee.png')}}" alt="image" class="img-fluid mx-auto mb-6">
-            <h4 class="mb-4"> قهوة ساخنة </h4>
-            <p class="mb-0"> تقدم شركة الطيران لدينا مجموعة واسعة من الوجهات، ومرنة </p>
+            <h4 class="mb-4"> {{__("strings.flight_facilities8_title")}}</h4>
+            <p class="mb-0"> {{__("strings.flight_facilities_card_desc")}}</p>
           </div>
         </div>
         <div class="col-md-4 col-xl-3">
           <div class="rounded-4 p-6 p-xl-8 text-center :box-shadow">
             <img src="{{asset('assets/img/duotone-pray.png')}}" alt="image" class="img-fluid mx-auto mb-6">
-            <h4 class="mb-4">مكان الصلاة </h4>
-            <p class="mb-0"> تقدم شركة الطيران لدينا مجموعة واسعة من الوجهات، ومرنة </p>
+            <h4 class="mb-4">{{__("strings.flight_facilities7_title")}}</h4>
+            <p class="mb-0"> {{__("strings.flight_facilities_card_desc")}}</p>
           </div>
         </div>
         <div class="col-md-4 col-xl-3">
           <div class="rounded-4 p-6 p-xl-8 text-center :box-shadow">
             <img src="{{asset('assets/img/duotone-medicine.png')}}" alt="image" class="img-fluid mx-auto mb-6">
-            <h4 class="mb-4"> Medical treatment </h4>
-            <p class="mb-0"> Our airline offers a wide range of destinations, flexible </p>
+            <h4 class="mb-4"> {{__("strings.flight_facilities6_title")}} </h4>
+            <p class="mb-0">{{__("strings.flight_facilities_card_desc")}} </p>
           </div>
         </div>
         <div class="col-md-4 col-xl-3">
           <div class="rounded-4 p-6 p-xl-8 text-center :box-shadow">
             <img src="{{asset('assets/img/duotone-support.png')}}" alt="image" class="img-fluid mx-auto mb-6">
-            <h4 class="mb-4"> Unlimited Support </h4>
-            <p class="mb-0"> Our airline offers a wide range of destinations, flexible </p>
+            <h4 class="mb-4"> {{__("strings.flight_facilities5_title")}} </h4>
+            <p class="mb-0">{{__("strings.flight_facilities_card_desc")}} </p>
           </div>
         </div>
       </div>

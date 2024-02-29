@@ -2,12 +2,12 @@
 <div class="bg-neutral-900">
     <div class="section-space">
       <div class="container">
-        <div class="row gy-5 flex-row-reverse">
-          <div dir="rtl" class="col-md-4 col-xl-4 align-items-center">
+        <div class="row gy-5 {{app()->getLocale() == "ar" ? "flex-row-reverse" : ""}}">
+          <div dir="{{app()->getLocale() == "ar" ? "rtl" : ""}}" class="col-md-4 col-xl-4 align-items-center">
             <a href="index.html" class="link d-flex justify-content-start mb-6 w-100">
               <img src="{{asset('assets/img/logo.png')}}" width="100px" alt="image" class="img-fluid">
             </a>
-            <p class="clr-neutral-30 mb-6">  حجز تذاكر الطيران الخاص بك لم يكن أسهل من أي وقت مضى! فيما يلي دليل خطوة بخطوة لمساعدتك في حجز رحلتك القادمة
+            <p class="clr-neutral-30 mb-6"> {{__("strings.footer_desc")}}
             </p>
             <ul class="list list-row gap-3 flex-wrap">
               <li>
@@ -37,27 +37,24 @@
               </li>
             </ul>
           </div>
-          <div dir="rtl" class="col-md-4 col-xl-4">
-            <h4 class="clr-neutral-0 mb-6"> روابط سريعة </h4>
+          <div dir="{{app()->getLocale() == "ar" ? "rtl" : ""}}" class="col-md-4 col-xl-4">
+            <h4 class="clr-neutral-0 mb-6"> {{__("strings.quick_links")}}</h4>
             <ul class="list gap-2">
               <li>
-                <a href="#" class="link d-inline-block clr-neutral-30 :clr-secondary-300"> من نحن </a>
+                <a href="#" class="link d-inline-block clr-neutral-30 :clr-secondary-300"> {{__("strings.contact_us")}}</a>
               </li>
               <li>
-                <a href="#" class="link d-inline-block clr-neutral-30 :clr-secondary-300"> الخدمات </a>
+                <a href="#" class="link d-inline-block clr-neutral-30 :clr-secondary-300"> {{__("strings.travel_religon")}} </a>
               </li>
               <li>
-                <a href="#" class="link d-inline-block clr-neutral-30 :clr-secondary-300"> السياحة الدينية </a>
+                <a href="#" class="link d-inline-block clr-neutral-30 :clr-secondary-300"> {{__("strings.travel_out")}}</a>
               </li>
               
-              <li>
-                <a href="#" class="link d-inline-block clr-neutral-30 :clr-secondary-300"> الشروط والأحكام </a>
-              </li>
 
             </ul>
           </div>
-          <div dir="rtl" class="col-md-4 col-xl-4">
-            <h4 class="clr-neutral-0 mb-6"> تواصل معنا </h4>
+          <div dir="{{app()->getLocale() == "ar" ? "rtl" : ""}}" class="col-md-4 col-xl-4">
+            <h4 class="clr-neutral-0 mb-6"> {{__("strings.contact_us")}} </h4>
             <ul class="list gap-4">
               <li>
                 <div class="d-flex align-items-center gap-4">
@@ -80,12 +77,12 @@
                   <div class="w-8 h-8 rounded-circle d-grid place-content-center bg-tertiary-300 clr-neutral-0 flex-shrink-00">
                     <span class="material-symbols-outlined mat-icon fw-200"> distance </span>
                   </div>
-                  <p class="mb-0 clr-neutral-30"> 114 - شارع التحرير بجوار محطة مترو الدقي  </p>
+                  <p class="mb-0 clr-neutral-30"> {{__("strings.address_real")}} </p>
                 </div>
               </li>
             </ul>
           </div>
-          <div dir="rtl" class="col-md-6 col-xl-3 d-none">
+          <div dir="{{app()->getLocale() == "ar" ? "rtl" : ""}}" class="col-md-6 col-xl-3 d-none">
             <h4 class="clr-neutral-0 mb-6"> Newsletter </h4>
             <p class="mb-6 clr-neutral-30"> Subscribe our newsletter to get our latest update & news </p>
             <div class="p-2 rounded-pill border border-neutral-200">

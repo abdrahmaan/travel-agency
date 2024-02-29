@@ -43,6 +43,24 @@ return [
         "work_step2_desc" => "Once you find the flight you want, select it and proceed with booking",
         "work_step3_title" => "Easy To Book",
         "work_step3_desc" => "Once payment is confirmed, you will receive an e-ticket via email",
+        // Flight Facilities
+        "flight_facilities_head" => "Work Process",
+        "flight_facilities_title" => "Travel in comfort with airline facilities",
+        "flight_facilities_desc" => "At Flight Facilities, we believe that your journey should be as enjoyable as your destination.",
+        "flight_facilities1_title" => "Cold Drinks",
+        "flight_facilities2_title" => "Unlimited WI-FI",
+        "flight_facilities3_title" => "Comfortable Seats",
+        "flight_facilities4_title" => "Breakfast",
+        "flight_facilities5_title" => "Unlimited Support",
+        "flight_facilities6_title" => "Medical treatment",
+        "flight_facilities7_title" => "Prayer's place",
+        "flight_facilities8_title" => "Hot coffee",
+        "flight_facilities_card_desc" => "Our airline offers a wide range of destinations, flexible",
+    // *******************************************************************
+
+    // Footer
+    "quick_links" => "Quick Links",
+    "footer_desc" => "Booking your flight tickets has never been easier! Here's a step-by-step guide to help you book your next trip",
     // *******************************************************************
    
 

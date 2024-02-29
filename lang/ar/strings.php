@@ -46,6 +46,24 @@ return [
          "work_step2_desc" => "بمجرد العثور على الرحلة التي تريدها، حددها وتابع الحجز",
          "work_step3_title" => "من السهل الحجز",
          "work_step3_desc" => "بمجرد تأكيد الدفع، ستتلقى تذكرة إلكترونية عبر البريد الإلكتروني",
+         // Flight Facilities
+        "flight_facilities_head" => "مرافق الطيران",
+        "flight_facilities_title" => "سافر براحة مع مرافق الطيران",
+        "flight_facilities_desc" => "نحن نؤمن بأن رحلتك يجب أن تكون ممتعة تمامًا مثل وجهتك",
+        "flight_facilities1_title" => "المشروبات الباردة",
+        "flight_facilities2_title" => "WI-FI غير محدود",
+        "flight_facilities3_title" => "مقاعد مريحة",
+        "flight_facilities4_title" => "الإفطار",
+        "flight_facilities5_title" => "دعم فنى غير محدود",
+        "flight_facilities6_title" => "العلاج الطبى",
+        "flight_facilities7_title" => "مكان للصلاة",
+        "flight_facilities8_title" => "القهوة الساخنة",
+        "flight_facilities_card_desc" => "تقدم شركة الطيران لدينا مجموعة واسعة من الوجهات، ومرنة",
     // *******************************************************************
+
+     // Footer
+     "quick_links" => "روابط سريعة",
+     "footer_desc" => "حجز تذاكر الطيران الخاص بك لم يكن أسهل من أي وقت مضى! فيما يلي دليل خطوة بخطوة لمساعدتك في حجز رحلتك القادمة     ",
+     // *******************************************************************
    
 ];
