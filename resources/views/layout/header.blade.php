@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row ">
         <div class="col-12">
-          <ul class="list list-row flex-wrap gap-3 flex-row-reverse align-items-center justify-content-between">
+          <ul class="list list-row flex-wrap gap-3 {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} align-items-center justify-content-between">
             <li>
               <a href="/" class="link d-inline-block">
                 <img src="{{asset('assets/img/logo.png')}}" width="100px" height="135px" alt="logo" class="logo d-xl-none">
@@ -18,8 +18,8 @@
                       <span class="material-symbols-outlined mat-icon fs-24 clr-neutral-700 fw-300"> pin_drop </span>
                     </div>
                     <div class="d-none d-lg-block">
-                      <span class="fs-12 d-block"> عنوان الشركة </span>
-                      <span class="d-block"> 114 - شارع التحرير بجوار محطة مترو الدقي </span>
+                      <span class="fs-12 d-block"> {{__("strings.address")}} </span>
+                      <span class="d-block"> {{__("strings.address_real")}}</span>
                     </div>
                   </div>
                 </li>
@@ -30,7 +30,7 @@
                       <span class="material-symbols-outlined mat-icon fs-24 clr-neutral-700 fw-300"> mark_as_unread </span>
                     </div>
                     <div class="d-none d-lg-block">
-                      <span class="fs-12 d-block"> الدعم الفنى </span>
+                      <span class="fs-12 d-block"> {{__("strings.support")}} </span>
                       <a href="mailto:mail@example.com" class="link d-block clr-neutral-700 :clr-primary-300"> mail@example.com </a>
                     </div>
                   </div>
@@ -41,7 +41,7 @@
                       <span class="material-symbols-outlined mat-icon fs-24 clr-neutral-0 fw-300"> phone_in_talk </span>
                     </div>
                     <div class="d-none d-lg-block">
-                      <span class="fs-12 d-block"> رقم التليفون </span>
+                      <span class="fs-12 d-block"> {{__("strings.phone")}} </span>
                       <a href="tel:406-555-0120" class="link d-block clr-neutral-700 :clr-primary-300"> (+20)1211110310 </a>
                     </div>
                   </div>
@@ -49,7 +49,7 @@
               </ul>
             </li>
             <li class="d-none d-md-block">
-              <a href="#" class="link btn bg-primary-300 :bg-primary-300 clr-neutral-0 :clr-neutral-0 fw-600 py-4 px-8 rounded-pill"> تواصل معنا </a>
+              <a href="#" class="link btn bg-primary-300 :bg-primary-300 clr-neutral-0 :clr-neutral-0 fw-600 py-4 px-8 rounded-pill"> {{__("strings.contact_us")}} </a>
             </li>
           </ul>
         </div>
@@ -221,22 +221,35 @@
                 </li>
               </ul>
             </div>
-            <ul dir="rtl" class="list list-lg-row menu-nav order-lg-1">
+            <ul dir="{{app()->getLocale() == "ar" ? "rtl" : "ltr"}}" class="list list-lg-row menu-nav order-lg-1">
               <li class="menu-list current-page">
-                <a href="#" class="link menu-link has-sub"> الرئيسية </a>
+                <a href="#" class="link menu-link has-sub"> {{__("strings.home")}} </a>
               </li>
               
               <li class="menu-list">
-                <a href="#" class="link menu-link has-sub"> سياحة دينية </a>
+                <a href="#" class="link menu-link has-sub"> {{__("strings.travel_religon")}}</a>
               </li>
               <li class="menu-list">
-                <a href="#" class="link menu-link has-sub"> سياحة خارجية </a>
+                <a href="#" class="link menu-link has-sub"> {{__("strings.travel_out")}}</a>
               </li>
               <li class="menu-list">
-                <a href="#" class="link menu-link has-sub"> من نحن </a>
+                <a href="#" class="link menu-link has-sub"> {{__("strings.about_us")}}</a>
               </li>
               <li class="menu-list">
-                <a href="#" class="link menu-link has-sub"> تواصل معنا </a>
+                <a href="#" class="link menu-link has-sub"> {{__("strings.contact_us")}}</a>
+              </li>
+              <li class="menu-list">
+                <a href="#" class="link menu-link has-sub">  <span class="material-symbols-outlined">
+                  language
+                  </span> </a>
+                <ul class="list menu-sub">
+                  <li class="menu-sub-list">
+                    <a href="/change/ar" class="link menu-sub-link"> العربية </a>
+                  </li>
+                  <li class="menu-sub-list">
+                    <a href="change/en" class="link menu-sub-link"> English </a>
+                  </li>
+                </ul>
               </li>
               <li class="menu-list d-none">
                 <a href="#" class="link menu-link has-sub"> الأقسام </a>

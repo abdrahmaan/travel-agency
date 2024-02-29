@@ -10,18 +10,18 @@
     </a>
     <div class="container">
       <div class="row g-4 justify-content-end">
-        <div class="col-lg-8 col-xl-6 col-xxl-5">
+        <div class="col-lg-8 col-xl-6 col-xxl-5 ps-5" >
           <span class="d-inline-flex align-items-center bg-primary-50 gap-4 rounded-pill py-1 ps-1 pe-5">
             <span class="w-9 h-9 rounded-circle d-grid place-content-center bg-primary-300 clr-neutral-0 flex-shrink-0">
               <span class="material-symbols-outlined mat-icon fw-200"> arrow_right_alt </span>
             </span>
-            <span class="h5 lh-1 m-0 clr-primary-400 fw-semibold"> سافر إلى أي مكان بثقة </span>
+            <span class="h5 lh-1 m-0 clr-primary-400 fw-semibold">{{__("strings.home_first")}}</span>
           </span>
-          <h1 class="d2 mt-4 mb-6"> احجز رحلتك القادمة بسهولة </h1>
-          <p dir="rtl" class="mb-10 fs-18"> على استعداد لاستكشاف العالم؟ يُسهّل موقع حجز الرحلات الخاص بنا فتح وجهات وتجارب جديدة. </p>
+          <h1 class="d2 mt-4 mb-6"> {{__("strings.home_second")}}</h1>
+          <p dir="" class="mb-10 fs-18"> {{__("strings.home_third")}} </p>
         </div>
         <div class="">
-          <form action="/flight-search" method="GET">
+          <form action="/{{app()->getLocale()}}/flight-search" method="GET">
             <div class="property-search p-6 rounded-3 bg-neutral-0">
               <ul class="list list-row justify-content-end flex-wrap align-items-center gap-6 mb-6">
                 <li>
@@ -37,12 +37,12 @@
                   </div>
                 </li>
               </ul>
-              <div class="property-search__content d-flex flex-row-reverse flex-wrap justify-content-start align-items-end gap-4">
-                <div class="d-flex flex-column align-items-end">
-                  <h5 class="mb-2" style="font-size: 15px">موقع البداية</h5>
-                  <div class="property-search__select property-search__col rounded-pill d-flex flex-row-reverse align-items-center gap-2 px-6">
+              <div class="property-search__content d-flex flex-wrap {{app()->getLocale() == "ar" ? "justify-content-start flex-row-reverse" : "justify-content-start" }} align-items-end gap-4">
+                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                  <h5 class="mb-2" style="font-size: 15px">{{__("strings.origin")}}</h5>
+                  <div class="property-search__select property-search__col rounded-pill d-flex {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> distance </span>
-                    <select name="originLocation" class="form-select text-end" aria-label="Default select example">
+                    <select name="originLocation" class="form-select text-center" aria-label="Default select example">
                       <option value="BKK">Bankok</option>
                       <option value="ALR">Alexandra</option>
                       <option value="SYD">Sydney</option>
@@ -51,11 +51,11 @@
                     </select>
                   </div>
                 </div>
-                <div class="d-flex flex-column align-items-end">
-                  <h5 class="mb-2" style="font-size: 15px">الوجهة</h5>
-                  <div class="property-search__select property-search__col rounded-pill flex-row-reverse d-flex align-items-center gap-2 px-6">
+                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                  <h5 class="mb-2" style="font-size: 15px">{{__("strings.destination")}}</h5>
+                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> distance </span>
-                    <select name="destination" class="form-select text-end" aria-label="Default select example">
+                    <select name="destination" class="form-select text-center" aria-label="Default select example">
                       <option value="BKK">Bankok</option>
                       <option value="ALR">Alexandra</option>
                       <option value="SYD">Sydney</option>
@@ -64,19 +64,19 @@
                     </select>
                   </div>
                 </div>
-                <div class="d-flex flex-column align-items-end">
-                  <h5 class="mb-2" style="font-size: 15px">تاريخ المغادرة </h5>
-                  <div class="property-search__select property-search__col rounded-pill flex-row-reverse d-flex align-items-center gap-2 px-6">
+                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                  <h5 class="mb-2" style="font-size: 15px">{{__("strings.departureDate")}}</h5>
+                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon d-none"> event </span>
                     <input name="departureDate" class="form-control border-0 py-3" type="date" style="background-color: #f9f9fe">
                    
                   </div>
                 </div>
-                <div class="d-flex flex-column align-items-end">
-                  <h5 class="mb-2" style="font-size: 15px">الكبار</h5>
-                  <div class="property-search__select property-search__col rounded-pill flex-row-reverse d-flex align-items-center gap-2 px-6">
+                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                  <h5 class="mb-2" style="font-size: 15px">{{__("strings.adults")}}</h5>
+                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> person </span>
-                    <select name="adults" class="form-select text-end" aria-label="Default select example">
+                    <select name="adults" class="form-select text-center" aria-label="Default select example">
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -86,13 +86,13 @@
                     </select>
                   </div>
                 </div>
-                <div class="d-flex flex-column align-items-end">
-                  <h5 class="mb-2" style="font-size: 15px">الأطفال</h5>
-                  <div class="property-search__select property-search__col rounded-pill flex-row-reverse d-flex align-items-center gap-2 px-6">
+                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                  <h5 class="mb-2" style="font-size: 15px">{{__("strings.childrens")}}</h5>
+                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> <span class="material-symbols-outlined">
                       escalator_warning
                       </span> </span>
-                    <select name="childrens" class="form-select text-end" aria-label="Default select example">
+                    <select name="childrens" class="form-select text-center" aria-label="Default select example">
                       <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -103,15 +103,15 @@
                     </select>
                   </div>
                 </div>
-                <div class="d-flex flex-column align-items-end">
-                  <h5 class="mb-2" style="font-size: 15px">طفل رضيع</h5>
-                  <div class="property-search__select property-search__col rounded-pill flex-row-reverse d-flex align-items-center gap-2 px-6">
+                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                  <h5 class="mb-2" style="font-size: 15px">{{__("strings.infants")}}</h5>
+                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon">
                        <span class="material-symbols-outlined">
                          breastfeeding
                       </span>
                     </span> 
-                    <select name="infants" class="form-select text-end" aria-label="Default select example">
+                    <select name="infants" class="form-select text-center" aria-label="Default select example">
                       <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -123,11 +123,11 @@
                   </div>
                 </div>
                
-                <div class="d-flex flex-column align-items-end">
-                  <h5 class="mb-2" style="font-size: 15px">درجة الرحلة</h5>
-                  <div class="property-search__select property-search__col rounded-pill flex-row-reverse d-flex align-items-center gap-2 px-6">
+                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                  <h5 class="mb-2" style="font-size: 15px">{{__("strings.travelClass")}}</h5>
+                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> flight </span>
-                    <select name="travelClass" class="form-select text-end" aria-label="Default select example">
+                    <select name="travelClass" class="form-select text-center" aria-label="Default select example">
                       <option value="ECONOMY">ECONOMY</option>
                       <option value="PREMIUM_ECONOMY">PREMIUM_ECONOMY</option>
                       <option value="BUSINESS">BUSINESS</option>
@@ -135,9 +135,9 @@
                     </select>
                   </div>
                 </div>
-                <div class="d-flex flex-column align-items-end">
-                  <h5 class="mb-2" style="font-size: 15px">أقصى سعر</h5>
-                  <div class="property-search__price property-search__col rounded-pill flex-row-reverse d-flex align-items-center gap-2 px-6 py-3">
+                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                  <h5 class="mb-2" style="font-size: 15px">{{__("strings.maxPrice")}}</h5>
+                  <div class="property-search__price property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6 py-3">
                     <div class="d-flex gap-2 align-items-center">
                       <span class="material-symbols-rounded mat-icon"> add_card </span>
                       <span class="d-inline-block fs-14"> Price </span>
@@ -179,17 +179,17 @@
                 <span class="w-9 h-9 rounded-circle d-grid place-content-center bg-primary-300 clr-neutral-0 flex-shrink-0">
                   <span class="material-symbols-outlined mat-icon fw-200"> arrow_right_alt </span>
                 </span>
-                <span class="h5 lh-1 m-0 clr-primary-400 fw-semibold"> عملية العمل </span>
+                <span class="h5 lh-1 m-0 clr-primary-400 fw-semibold">{{__("strings.work_head")}}</span>
               </span>
-              <h2 class="mt-4 mb-6"> كيفية حجز تذاكر الطيران الخاصة بك: دليل خطوة بخطوة </h2>
-              <p class="mb-0"> حجز تذاكر الطيران الخاص بك لم يكن أسهل من أي وقت مضى! فيما يلي دليل خطوة بخطوة لمساعدتك في حجز رحلتك القادمة </p>
+              <h2 class="mt-4 mb-6"> {{__("strings.work_title")}}</h2>
+              <p class="mb-0"> {{__("strings.work_desc")}}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="container">
-      <div class="row g-4 flex-row-reverse">
+      <div class="row g-4 {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }}">
         <div class="col-md-6 col-lg-4">
           <div class="border border-neutral-40 rounded-4 p-8 bg-neutral-0 text-center h-100">
             <div class="d-inline-block position-relative">
@@ -198,8 +198,8 @@
                 <span class="h4 m-0"> 1 </span>
               </span>
             </div>
-            <h3 class="mt-8 mb-6"> اختيار البحث </h3>
-            <p class="mb-0"> استخدم شريط البحث الخاص بنا لإدخال الوجهة المطلوبة وتواريخ السفر </p>
+            <h3 class="mt-8 mb-6"> {{__("strings.work_step1_title")}}</h3>
+            <p class="mb-0">  {{__("strings.work_step1_desc")}}</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -210,8 +210,8 @@
                 <span class="h4 m-0"> 2 </span>
               </span>
             </div>
-            <h3 class="mt-8 mb-6"> حدد وجهتك </h3>
-            <p class="mb-0"> بمجرد العثور على الرحلة التي تريدها، حددها وتابع الحجز </p>
+            <h3 class="mt-8 mb-6">  {{__("strings.work_step2_title")}}</h3>
+            <p class="mb-0">  {{__("strings.work_step2_desc")}}</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
@@ -222,8 +222,8 @@
                 <span class="h4 m-0"> 3 </span>
               </span>
             </div>
-            <h3 class="mt-8 mb-6"> من السهل الحجز </h3>
-            <p class="mb-0"> بمجرد تأكيد الدفع، ستتلقى تذكرة إلكترونية عبر البريد الإلكتروني </p>
+            <h3 class="mt-8 mb-6">  {{__("strings.work_step3_title")}}</h3>
+            <p class="mb-0"> {{__("strings.work_step3_desc")}}</p>
           </div>
         </div>
       </div>
