@@ -210,13 +210,7 @@
               <span class="material-symbols-outlined mat-icon fw-300"> rotate_right </span> Read More </a>
           </div>
         </div>
-        {{-- Functions To Handle Output Data --}}
-        @php
-           function getCarrierName($code){
-                 $carrierName = $Data->dictionaries->carriers->$code;
-                 return $carrierName;
-              }
-        @endphp
+
         @foreach ($Data->data as $flight)
             @php
                 $carrierCode = $flight->validatingAirlineCodes[0];
@@ -445,7 +439,7 @@
                           <h2 class="mb-0 clr-neutral-700"> EGP {{$flight->price->grandTotal}} </h2>
                           <span class="d-inline-block fs-14 clr-primary-300"> 20% خصم </span>
                         </div>
-                        <a href="flight-details.html" class="btn btn-outline-primary py-3 px-6 rounded-pill d-inline-flex align-items-center gap-1 fw-semibold justify-content-center"> إحجز الأن </a>
+                        <a target="_blank" href="/{{app()->getLocale()}}/flight-book/{{$flight->price->grandTotal}}" class="btn btn-outline-primary py-3 px-6 rounded-pill d-inline-flex align-items-center gap-1 fw-semibold justify-content-center"> إحجز الأن </a>
                       </div>
                     </div>
                   </div>

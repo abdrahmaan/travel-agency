@@ -27,6 +27,11 @@ Route::middleware(['lang'])->prefix("{lang}")->group(function () {
     
     Route::get('flight-search', [FlightController::class, "search"]);
 
+    Route::get('flight-book/{amount}', [FlightController::class, "payFlight"]);
+
+
+    Route::post('flight-book/response', [FlightController::class, "payFlight_response"]);
+
    
 });
 

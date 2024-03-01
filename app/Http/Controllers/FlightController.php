@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Paytabscom\Laravel_paytabs\Facades\paypage; 
 
 class FlightController extends Controller
 {
@@ -90,6 +91,26 @@ class FlightController extends Controller
                     return dd("No Data Founded");
                 }
         }
+    }
+
+    public function payFlight(Request $request){
+        $amount = $request->amount;
+        $pay = paypage::sendPaymentCode('all')
+            ->sendTransaction("sale","ecom")
+            ->sendCart("21", $amount, "Hello From Ticket Airplane Ticket")
+            ->sendCustomerDetails("Abdulrhaman", "xmbedo@gmail.com", "01110645479", "Street", "Cairo", "EG", "EG", "12668","")
+            ->sendHideShipping(true)
+            ->sendURLs("https://mallem.power-travels.com/en/", "https://webhook.site/05ec4d52-6712-4f1c-9357-95d34587e715")
+            ->create_pay_page(); 
+
+            return $pay;
+            
+    }
+
+    public function payFlight_response(Request $request){
+        return dd($request);
+
+            
     }
 
     /**
