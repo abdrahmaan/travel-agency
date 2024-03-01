@@ -44,43 +44,51 @@ class FlightController extends Controller
     public function search(Request $request)
     {
 
-       $token = $this->getToken_Amadeus();
+        if(session()->has("data")){
+                $response = session()->get("data");
+                
+                 return view("flights", ["Data" => $response]);
+        } else {
+            
+        
+            $token = $this->getToken_Amadeus();
 
-       $origin = $request->originLocation;
-       $destination = $request->destination;
-       $departureDate = $request->departureDate;
-       $adults = intval($request->adults);
-       $childrens = intval($request->childrens);
-       $infants = intval($request->infants);
-       $travelClass = $request->travelClass;
-       $maxPrice = intval($request->maxPrice);
+            $origin = $request->originLocation;
+            $destination = $request->destination;
+            $departureDate = $request->departureDate;
+            $adults = intval($request->adults);
+            $childrens = intval($request->childrens);
+            $infants = intval($request->infants);
+            $travelClass = $request->travelClass;
+            $maxPrice = intval($request->maxPrice);
 
        
-        $curl = curl_init();
+                $curl = curl_init();
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=$origin&destinationLocationCode=$destination&departureDate=$departureDate&adults=$adults&children=$childrens&infants=$infants&travelClass=$travelClass&maxPrice=$maxPrice&max=5&currencyCode=EGP",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'GET',
-            CURLOPT_HTTPHEADER => array(
-                "Authorization: Bearer $token"
-             ),
-        ));
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=$origin&destinationLocationCode=$destination&departureDate=$departureDate&adults=$adults&children=$childrens&infants=$infants&travelClass=$travelClass&maxPrice=$maxPrice&max=5&currencyCode=EGP",
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'GET',
+                    CURLOPT_HTTPHEADER => array(
+                        "Authorization: Bearer $token"
+                    ),
+                ));
 
-        $response = json_decode(curl_exec($curl));
+                $response = json_decode(curl_exec($curl));
 
-        if (isset($response->data) && count($response->data) > 0) {
-
-            
-            return view("flights", ["Data" => $response]);
-            
-        } else {
-            return dd("No Data Founded");
+                if (isset($response->data) && count($response->data) > 0) {
+                    session()->put("data",$response);
+                // return dd($response);
+                    return view("flights", ["Data" => $response]);
+                    
+                } else {
+                    return dd("No Data Founded");
+                }
         }
     }
 

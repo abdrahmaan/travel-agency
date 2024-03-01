@@ -57,7 +57,20 @@ return [
         "flight_facilities8_title" => "Hot coffee",
         "flight_facilities_card_desc" => "Our airline offers a wide range of destinations, flexible",
     // *******************************************************************
+     // Search Flight Page
+        // Hero Section
+        "flight_from" => "From",
+        "flight_to" => "To",
+        "stops" => "Stops",
+        "non_stops" => "Non-Stop",
+        "aircraftName" => "Airplane",
+        "travelClass" => "Travel Class",
+        "seats" => "Just :number avaliable seats for ticketing",
+        "flight_number" => "Flight Number",
+        "terminal" => "Terminal",
+        "flight_btn" => "Flight Details",
 
+    // *******************************************************************
     // Footer
     "quick_links" => "Quick Links",
     "footer_desc" => "Booking your flight tickets has never been easier! Here's a step-by-step guide to help you book your next trip",
