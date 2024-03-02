@@ -247,7 +247,7 @@
                     <a href="/change/ar" class="link menu-sub-link"> العربية </a>
                   </li>
                   <li class="menu-sub-list">
-                    <a href="change/en" class="link menu-sub-link"> English </a>
+                    <a href="/change/en" class="link menu-sub-link"> English </a>
                   </li>
                 </ul>
               </li>

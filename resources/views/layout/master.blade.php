@@ -24,6 +24,11 @@
   <link rel="stylesheet" href="{{asset('assets/leftlet/leaflet.css')}}" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="">
   <link rel="stylesheet" href="{{asset('assets/css/plugins.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <style>
+    a:hover{
+      text-decoration: none !important;
+    }
+  </style>
 </head>
 
 <body>
