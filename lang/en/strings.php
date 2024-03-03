@@ -61,7 +61,7 @@ return [
         // Hero Section
         "flight_from" => "From",
         "flight_to" => "To",
-        "stops" => "Stops",
+        "stops" => " Stops ",
         "non_stops" => "Non-Stop",
         "aircraftName" => "Airplane",
         "travelClass" => "Travel Class",
@@ -69,6 +69,8 @@ return [
         "flight_number" => "Flight Number",
         "terminal" => "Terminal",
         "flight_btn" => "Flight Details",
+        "flight_book_btn" => "Book Now",
+
 
     // *******************************************************************
     // Footer

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FlightController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 
 /*
@@ -42,7 +43,15 @@ Route::get('change/{lg}', function (Request $request) {
 
     $newLang = $request->lg;
     App::setLocale($newLang);
-    return redirect("/$newLang");
+
+
+    $previousUrlArr = explode("/",URL::previous());
+
+    $previousUrlArr[3] = $newLang;
+
+     $newURL = implode("/",$previousUrlArr);
+
+    return redirect($newURL);
 
 });
 

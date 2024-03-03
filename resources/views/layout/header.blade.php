@@ -5,7 +5,7 @@
         <div class="col-12">
           <ul class="list list-row flex-wrap gap-3 {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} align-items-center justify-content-between">
             <li>
-              <a href="/" class="link d-inline-block">
+              <a href="/{{app()->getLocale()}}" class="link d-inline-block">
                 <img src="{{asset('assets/img/logo.png')}}" width="100px" height="135px" alt="logo" class="logo d-xl-none">
                 <img src="{{asset('assets/img/logo.png')}}" width="100px" height="135px" alt="logo" class="logo d-none d-xl-inline-block">
               </a>
