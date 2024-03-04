@@ -38,7 +38,7 @@
                 </li>
               </ul>
               <div class="property-search__content d-flex flex-wrap {{app()->getLocale() == "ar" ? "justify-content-start flex-row-reverse" : "justify-content-start" }} align-items-end gap-4">
-                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.origin")}}</h5>
                   <div class="property-search__select property-search__col rounded-pill d-flex {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> distance </span>
@@ -51,7 +51,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.destination")}}</h5>
                   <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> distance </span>
@@ -64,7 +64,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.departureDate")}}</h5>
                   <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon d-none"> event </span>
@@ -72,7 +72,7 @@
                    
                   </div>
                 </div>
-                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.adults")}}</h5>
                   <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> person </span>
@@ -86,7 +86,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.childrens")}}</h5>
                   <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> <span class="material-symbols-outlined">
@@ -103,7 +103,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.infants")}}</h5>
                   <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon">
@@ -123,7 +123,7 @@
                   </div>
                 </div>
                
-                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.travelClass")}}</h5>
                   <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> flight </span>
@@ -135,7 +135,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.maxPrice")}}</h5>
                   <div class="property-search__price property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6 py-3">
                     <div class="d-flex gap-2 align-items-center">
@@ -799,3 +799,18 @@
   </div>
   <!-- /Testimonial -->
 @endsection 
+
+
+@section('css')
+
+<style>
+
+  @media (max-width: 768px){
+    #search{
+      width: 100% !important;
+    }
+  }
+
+</style>
+    
+@endsection

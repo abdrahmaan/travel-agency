@@ -29,6 +29,7 @@
       text-decoration: none !important;
     }
   </style>
+  @yield('css')
 </head>
 
 <body>
