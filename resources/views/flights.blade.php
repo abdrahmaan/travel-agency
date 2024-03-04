@@ -250,7 +250,8 @@
             @endphp
             <div class="col-lg-12 order-1 order-lg-2">
                 <div class="row g-4">
-                  <div class="col-12">
+     
+                   <div class="col-12">
                     <div class="flight-card d-md-flex {{app()->getLocale() == "ar" ? "flex-md-row-reverse" : ""}}  bg-neutral-0 border border-neutral-40 rounded-4">
                         {{-- بيانات الرحلة الأساسية --}}
                       <div class="flight-card__body d-flex flex-column gap-6 px-4 px-sm-6 py-6 flex-grow-1">
@@ -261,10 +262,12 @@
                               </div>
                               <p class="mb-0 fw-medium"> {{$carrierName}} </p>
                         </div>
-                        {{-- من - عدد الوقفات - إلى --}}
-                        <div class="flight-card__schedule d-md-flex  {{app()->getLocale() == "ar" ? "flex-md-row-reverse" : ""}} gap-6">
+                       
+
+                          {{-- من - عدد الوقفات - إلى --}}
+                        <div class="flight-card__schedule d-flex  {{app()->getLocale() == "ar" ? "flex-md-row-reverse" : ""}} gap-6">
                             {{-- من --}}
-                            <div class="d-flex flex-md-column  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
+                            <div class="d-flex flex-column  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
                                 <span class="d-block clr-primary-300"> {{__('strings.flight_from')}} </span>
                                 <h4 class="mb-0"> {{$formattedTimeStart}} </h4>
                                 <span class="text-primary fw-bold" style="font-size: 13px;"> {{$DateStringStart}}</span>   
@@ -281,13 +284,14 @@
                                 <span class="d-block clr-neutral-500"> {{$formattedDuration}} </span>
                             </div>
                             {{-- إلى --}}
-                            <div class="d-flex flex-md-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
+                            <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
                                 <span class="d-block clr-primary-300"> {{__("strings.flight_to")}} </span>
                                 <h4 class="mb-0"> {{$formattedTimeEnd}}  </h4>
                                 <span class="text-primary fw-bold" style="font-size: 13px;">{{$DateStringEnd}} </span>
                                 <span class="d-block clr-neutral-700"> {{$flight->itineraries[0]->segments[count($flight->itineraries[0]->segments) - 1]->arrival->iataCode}} </span>
                             </div>
                         </div>
+                       
                         {{-- درجة الطيران - نوع الطيارة --}}
                         <div class="flight-card__info text-center">
                           <p dir="rtl" class="mb-0"> {{__("strings.aircraftName")}} : <span class="clr-tertiary-500">{{$aircraftName}}</span>
@@ -297,9 +301,9 @@
                         </div>
                         {{--  نسبة الإرتجاع - عدد المقاعد--}}
                         <div class="flight-card__price d-md-flex  {{app()->getLocale() == "ar" ? "" : "flex-md-row-reverse"}} justify-content-between text-center">
-                          <p class="mb-0"> Refundable <span class="clr-primary-500">$5 eCash</span>
+                          <p class="mb-2"> Refundable <span class="clr-primary-500">$5 eCash</span>
                           </p>
-                          <p class="mb-0 text-danger"> {{__("strings.seats", ["number" => $flight->numberOfBookableSeats])}} </p>
+                          <p class="mb-2 text-danger"> {{__("strings.seats", ["number" => $flight->numberOfBookableSeats])}} </p>
                           <button  class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample-{{$flight->id}}" aria-expanded="false" aria-controls="collapseExample-{{$flight->id}}" class="mb-0"> {{__("strings.flight_btn")}} </button>
                         </div>
 
@@ -308,7 +312,7 @@
                             @foreach($flight->itineraries[0]->segments as $segment)
                               {{-- بيانات التوقف  --}}
                                   <div class="flight-card__body d-flex flex-column gap-6 px-4 px-sm-6 py-6 flex-grow-1">
-                                    <div class="flight-card__schedule d-md-flex gap-6">
+                                    <div class="flight-card__schedule d-flex gap-6">
                                       <div class="d-none flex-column gap-3 gap-md-7 text-center text-md-start flex-grow-1">
                                         <div class="d-grid place-content-center w-15 h-15 rounded-circle bg-neutral-0 box-shadow mx-auto ms-md-0">
                                           <img src="assets/img/brand-11.png" alt="image" class="img-fluid object-fit-contain">
@@ -316,7 +320,7 @@
                                         <p class="mb-0 fw-medium"> Delta Air Lines </p>
                                       </div>
                                       {{-- موعد الوصول  --}}
-                                      <div class="d-flex flex-md-column justify-content-between  gap-2 my-6 my-md-0 flex-grow-1">
+                                      <div class="d-flex flex-column justify-content-between  gap-2 my-6 my-md-0 flex-grow-1">
                                         <span class="d-block clr-primary-300"> From </span>
                                         <h4 class="mb-0"> 12:40 PM <br> <span class="text-primary" style="font-size: 13px;"> 30-1-2024 </span> </h4>
                                         <span class="d-block clr-neutral-700"> New York </span>
@@ -332,7 +336,7 @@
                                         <span class="d-block clr-neutral-500"> 02h 15 min </span>
                                       </div>
                                       {{-- موعد البداية  --}}
-                                      <div class="d-flex flex-md-column  gap-2 my-6 my-md-0 flex-grow-1">
+                                      <div class="d-flex flex-column  gap-2 my-6 my-md-0 flex-grow-1">
                                         <span class="d-block clr-primary-300"> To </span>
                                         <h4 class="mb-0"> 12:40 PM <br> <span class="text-primary" style="font-size: 13px;"> 30-1-2024 </span> </h4>
                                         <span class="d-block clr-neutral-700"> London </span>
@@ -445,6 +449,8 @@
                       </div>
                     </div>
                   </div>
+       
+                 
                 
                 </div>
             </div>
