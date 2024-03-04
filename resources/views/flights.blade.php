@@ -210,6 +210,36 @@
               <span class="material-symbols-outlined mat-icon fw-300"> rotate_right </span> Read More </a>
           </div>
         </div>
+        @php 
+
+               
+
+
+                function getFormatTime($time){
+                  $timeString =  explode('T',$time)[1];
+                  $dateTime = new DateTime($timeString);
+                  $formattedTime = $dateTime->format('h:i A');
+                  return $formattedTime;
+               }
+
+
+               function getFormatDuration($duration){
+                    
+                // Your duration string => 3H 35M
+                $durationString = $duration;
+
+                // Create a DateInterval object from the duration string
+                $interval = new DateInterval($durationString);
+
+                // Format the DateInterval object to display the desired format
+                $formattedDuration = sprintf('%dH %dM', $interval->h, $interval->i);
+
+                return $formattedDuration;
+
+               }
+
+
+        @endphp
 
         @foreach ($Data->data as $flight)
             @php
@@ -262,16 +292,17 @@
                               </div>
                               <p class="mb-0 fw-medium"> {{$carrierName}} </p>
                         </div>
-                       
 
-                          {{-- من - عدد الوقفات - إلى --}}
+                        @foreach ($flight->itineraries as $flight_itineraries)
+
+                               {{-- من - عدد الوقفات - إلى --}}
                         <div class="flight-card__schedule d-flex  {{app()->getLocale() == "ar" ? "flex-md-row-reverse" : ""}} gap-6">
                             {{-- من --}}
                             <div class="d-flex flex-column  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
                                 <span class="d-block clr-primary-300"> {{__('strings.flight_from')}} </span>
-                                <h4 class="mb-0"> {{$formattedTimeStart}} </h4>
-                                <span class="text-primary fw-bold" style="font-size: 13px;"> {{$DateStringStart}}</span>   
-                                <span class="d-block clr-neutral-700"> {{$flight->itineraries[0]->segments[0]->departure->iataCode}} </span>
+                                <h4 class="mb-0"> {{getFormatTime($flight_itineraries->segments[0]->departure->at)}} </h4>
+                                <span class="text-primary fw-bold" style="font-size: 13px;"> {{explode("T",$flight_itineraries->segments[0]->departure->at)[0]}}</span>   
+                                <span class="d-block clr-neutral-700"> {{$flight_itineraries->segments[0]->departure->iataCode}} </span>
                             </div>
                             {{-- عدد الوقفات --}}
                             <div class="d-flex flex-column gap-2 text-center flex-grow-1">
@@ -280,17 +311,18 @@
                                     <span class="material-symbols-outlined mat-icon"> flight_takeoff </span>
                                 </div>
                                 </div>
-                                <span class="d-block fw-medium"> {{count($flight->itineraries[0]->segments) > 1  ? count($flight->itineraries[0]->segments) . __('strings.stops') : __('strings.non_stops') }} </span>
-                                <span class="d-block clr-neutral-500"> {{$formattedDuration}} </span>
+                                <span class="d-block fw-medium"> {{count($flight_itineraries->segments) > 1  ? count($flight_itineraries->segments) . __('strings.stops') : __('strings.non_stops') }} </span>
+                                <span class="d-block clr-neutral-500"> {{getFormatDuration($flight_itineraries->duration)}} </span>
                             </div>
                             {{-- إلى --}}
                             <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
                                 <span class="d-block clr-primary-300"> {{__("strings.flight_to")}} </span>
-                                <h4 class="mb-0"> {{$formattedTimeEnd}}  </h4>
-                                <span class="text-primary fw-bold" style="font-size: 13px;">{{$DateStringEnd}} </span>
-                                <span class="d-block clr-neutral-700"> {{$flight->itineraries[0]->segments[count($flight->itineraries[0]->segments) - 1]->arrival->iataCode}} </span>
+                                <h4 class="mb-0"> {{getFormatTime($flight_itineraries->segments[count($flight_itineraries->segments) - 1]->arrival->at) }}  </h4>
+                                <span class="text-primary fw-bold" style="font-size: 13px;">{{explode("T",$flight_itineraries->segments[count($flight_itineraries->segments) - 1]->arrival->at)[0]}} </span>
+                                <span class="d-block clr-neutral-700"> {{$flight_itineraries->segments[count($flight_itineraries->segments) - 1]->arrival->iataCode}} </span>
                             </div>
                         </div>
+                        @endforeach
                        
                         {{-- درجة الطيران - نوع الطيارة --}}
                         <div class="flight-card__info text-center">

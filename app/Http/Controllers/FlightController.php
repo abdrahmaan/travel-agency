@@ -45,12 +45,11 @@ class FlightController extends Controller
     public function search(Request $request)
     {
 
-        if(session()->has("data")){
+         if(session()->has("data")){
                 $response = session()->get("data");
 
-                 // dd($response);
                 
-                return view("flights", ["Data" => $response]);
+                 return view("flights", ["Data" => $response]);
         } else {
             
         
@@ -69,7 +68,7 @@ class FlightController extends Controller
                 $curl = curl_init();
 
                 curl_setopt_array($curl, array(
-                    CURLOPT_URL => "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=$origin&destinationLocationCode=$destination&departureDate=$departureDate&returnDate=2024-03-08&adults=$adults&children=$childrens&infants=$infants&travelClass=$travelClass&maxPrice=$maxPrice&max=5&currencyCode=EGP",
+                    CURLOPT_URL => "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=$origin&destinationLocationCode=$destination&departureDate=$departureDate&adults=$adults&children=$childrens&infants=$infants&travelClass=$travelClass&maxPrice=$maxPrice&max=5&currencyCode=EGP",
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_ENCODING => '',
                     CURLOPT_MAXREDIRS => 10,
