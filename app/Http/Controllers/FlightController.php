@@ -47,6 +47,8 @@ class FlightController extends Controller
          if(session()->has("data")){
 
               $response = session()->get("data");
+
+            // return dd($response);
                 
             return view("flights", ["Data" => $response]);
             } else {

@@ -296,37 +296,37 @@
                         @foreach ($flight->itineraries as $flight_itineraries)
 
                                {{-- من - عدد الوقفات - إلى --}}
-                        <div class="flight-card__schedule d-flex  {{app()->getLocale() == "ar" ? "flex-row-reverse" : ""}} gap-6">
-                            {{-- من --}}
-                            <div class="d-flex flex-column  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
-                                <span class="d-block clr-primary-300"> {{__('strings.flight_from')}} </span>
-                                <h4 class="mb-0"> {{getFormatTime($flight_itineraries->segments[0]->departure->at)}} </h4>
-                                <span class="text-primary fw-bold" style="font-size: 13px;"> {{explode("T",$flight_itineraries->segments[0]->departure->at)[0]}}</span>   
-                                <span class="d-block clr-neutral-700"> {{$flight_itineraries->segments[0]->departure->iataCode}} </span>
-                            </div>
-                            {{-- عدد الوقفات --}}
-                            <div class="d-flex flex-column gap-2 text-center flex-grow-1">
-                                <div class="d-grid place-content-center w-12 h-12 box-shadow rounded-circle mx-auto">
-                                <div class="d-grid place-content-center w-10 h-10 bg-primary-50 clr-primary-300 rounded-circle">
-                                    <span class="material-symbols-outlined mat-icon"> flight_takeoff </span>
-                                </div>
-                                </div>
-                                <span class="d-block fw-medium"> {{count($flight_itineraries->segments) > 1  ? count($flight_itineraries->segments) . __('strings.stops') : __('strings.non_stops') }} </span>
-                                <span class="d-block clr-neutral-500"> {{getFormatDuration($flight_itineraries->duration)}} </span>
-                            </div>
-                            {{-- إلى --}}
-                            <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
-                                <span class="d-block clr-primary-300"> {{__("strings.flight_to")}} </span>
-                                <h4 class="mb-0"> {{getFormatTime($flight_itineraries->segments[count($flight_itineraries->segments) - 1]->arrival->at) }}  </h4>
-                                <span class="text-primary fw-bold" style="font-size: 13px;">{{explode("T",$flight_itineraries->segments[count($flight_itineraries->segments) - 1]->arrival->at)[0]}} </span>
-                                <span class="d-block clr-neutral-700"> {{$flight_itineraries->segments[count($flight_itineraries->segments) - 1]->arrival->iataCode}} </span>
-                            </div>
-                        </div>
+                          <div class="flight-card__schedule d-flex  {{app()->getLocale() == "ar" ? "flex-row-reverse" : ""}} gap-6">
+                              {{-- من --}}
+                              <div class="d-flex flex-column  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
+                                  <span class="d-block clr-primary-300"> {{__('strings.flight_from')}} </span>
+                                  <h4 class="mb-0"> {{getFormatTime($flight_itineraries->segments[0]->departure->at)}} </h4>
+                                  <span class="text-primary fw-bold" style="font-size: 13px;"> {{explode("T",$flight_itineraries->segments[0]->departure->at)[0]}}</span>   
+                                  <span class="d-block clr-neutral-700"> {{$flight_itineraries->segments[0]->departure->iataCode}} </span>
+                              </div>
+                              {{-- عدد الوقفات --}}
+                              <div class="d-flex flex-column gap-2 text-center flex-grow-1">
+                                  <div class="d-grid place-content-center w-12 h-12 box-shadow rounded-circle mx-auto">
+                                  <div class="d-grid place-content-center w-10 h-10 bg-primary-50 clr-primary-300 rounded-circle">
+                                      <span class="material-symbols-outlined mat-icon"> flight_takeoff </span>
+                                  </div>
+                                  </div>
+                                  <span class="d-block fw-medium"> {{count($flight_itineraries->segments) > 1  ? count($flight_itineraries->segments) . __('strings.stops') : __('strings.non_stops') }} </span>
+                                  <span class="d-block clr-neutral-500"> {{getFormatDuration($flight_itineraries->duration)}} </span>
+                              </div>
+                              {{-- إلى --}}
+                              <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
+                                  <span class="d-block clr-primary-300"> {{__("strings.flight_to")}} </span>
+                                  <h4 class="mb-0"> {{getFormatTime($flight_itineraries->segments[count($flight_itineraries->segments) - 1]->arrival->at) }}  </h4>
+                                  <span class="text-primary fw-bold" style="font-size: 13px;">{{explode("T",$flight_itineraries->segments[count($flight_itineraries->segments) - 1]->arrival->at)[0]}} </span>
+                                  <span class="d-block clr-neutral-700"> {{$flight_itineraries->segments[count($flight_itineraries->segments) - 1]->arrival->iataCode}} </span>
+                              </div>
+                          </div>
                         @endforeach
                        
                         {{-- درجة الطيران - نوع الطيارة --}}
                         <div class="flight-card__info text-center">
-                          <p dir="rtl" class="mb-0"> {{__("strings.aircraftName")}} : <span class="clr-tertiary-500">{{$aircraftName}}</span>
+                          <p dir="rtl" class="mb-0 d-none"> {{__("strings.aircraftName")}} : <span class="clr-tertiary-500">{{$aircraftName}}</span>
                           </p>
                           <p dir="rtl" class="mb-0">{{__("strings.travelClass")}} : <span class="clr-primary-300">{{$flight->travelerPricings[0]->fareDetailsBySegment[0]->cabin}}</span>
                           </p>
@@ -340,53 +340,49 @@
                         </div>
 
                         <div class="flight-card collapse border-dashed rounded-4" id="collapseExample-{{$flight->id}}" style="background: #f4f5fe">
-                          <div class="hr-dashed my-5"></div>
-                            @foreach($flight->itineraries[0]->segments as $segment)
-                              {{-- بيانات التوقف  --}}
-                                  <div class="flight-card__body d-flex flex-column gap-6 px-4 px-sm-6 py-6 flex-grow-1">
-                                    <div class="flight-card__schedule d-flex gap-6">
-                                      <div class="d-none flex-column gap-3 gap-md-7 text-center text-md-start flex-grow-1">
-                                        <div class="d-grid place-content-center w-15 h-15 rounded-circle bg-neutral-0 box-shadow mx-auto ms-md-0">
-                                          <img src="assets/img/brand-11.png" alt="image" class="img-fluid object-fit-contain">
-                                        </div>
-                                        <p class="mb-0 fw-medium"> Delta Air Lines </p>
+                          <div class="hr-dashed d-none my-5"></div>
+                            @foreach($flight->itineraries as $flight_itineraries)
+                              @foreach ($flight_itineraries->segments as $segment)
+                                   {{-- بيانات التوقف  --}}
+                                   <div class="flight-card__body d-flex flex-column  px-4 px-sm-6  flex-grow-1">
+                                    <div class="flight-card__schedule mt-4 d-flex  {{app()->getLocale() == "ar" ? "flex-row-reverse" : ""}} gap-6">
+                                      {{-- من --}}
+                                      <div class="d-flex flex-column  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
+                                          <span class="d-block clr-primary-300"> {{__('strings.flight_from')}} </span>
+                                          <h4 class="mb-0"> {{getFormatTime($segment->departure->at)}} </h4>
+                                          <span class="text-primary fw-bold" style="font-size: 13px;"> {{explode("T",$segment->departure->at)[0]}}</span>   
+                                          <span class="d-block clr-neutral-700"> {{$segment->departure->iataCode}} </span>
                                       </div>
-                                      {{-- موعد الوصول  --}}
-                                      <div class="d-flex flex-column justify-content-between  gap-2 my-6 my-md-0 flex-grow-1">
-                                        <span class="d-block clr-primary-300"> From </span>
-                                        <h4 class="mb-0"> 12:40 PM <br> <span class="text-primary" style="font-size: 13px;"> 30-1-2024 </span> </h4>
-                                        <span class="d-block clr-neutral-700"> New York </span>
-                                        <span class="d-block clr-neutral-700"> Terminal: 5 </span>
-                                      </div>
-                                      {{-- بيانات التوقف و وقت الرحلة  --}}
+                                      {{-- عدد الوقفات --}}
                                       <div class="d-flex flex-column gap-2 text-center flex-grow-1">
-                                        <div class="d-grid place-content-center w-12 h-12 box-shadow rounded-circle mx-auto">
+                                          <div class="d-grid place-content-center w-12 h-12 box-shadow rounded-circle mx-auto">
                                           <div class="d-grid place-content-center w-10 h-10 bg-primary-50 clr-primary-300 rounded-circle">
-                                            <span class="material-symbols-outlined mat-icon"> flight_takeoff </span>
+                                              <span class="material-symbols-outlined mat-icon"> flight_takeoff </span>
                                           </div>
-                                        </div>
-                                        <span class="d-block clr-neutral-500"> 02h 15 min </span>
+                                          </div>
+                                          <span class="d-block clr-neutral-500"> {{getFormatDuration($segment->duration)}} </span>
                                       </div>
-                                      {{-- موعد البداية  --}}
-                                      <div class="d-flex flex-column  gap-2 my-6 my-md-0 flex-grow-1">
-                                        <span class="d-block clr-primary-300"> To </span>
-                                        <h4 class="mb-0"> 12:40 PM <br> <span class="text-primary" style="font-size: 13px;"> 30-1-2024 </span> </h4>
-                                        <span class="d-block clr-neutral-700"> London </span>
+                                      {{-- إلى --}}
+                                      <div class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
+                                          <span class="d-block clr-primary-300"> {{__("strings.flight_to")}} </span>
+                                          <h4 class="mb-0"> {{getFormatTime($segment->arrival->at) }}  </h4>
+                                          <span class="text-primary fw-bold" style="font-size: 13px;">{{explode("T",$segment->arrival->at)[0]}} </span>
+                                          <span class="d-block clr-neutral-700"> {{$segment->arrival->iataCode}} </span>
                                       </div>
-                                    </div>
-                                    {{-- خط الطيران - نوع الطيارة - درجة الرحلة-  رقم الرحلة  --}}
-                                    <div class="flight-card__info d-flex justify-content-center text-center p-3" style="background-color: #f7f7fe; border-radius: 0.5rem; min-height: 24px">
-                                      <p class="mb-0 mx-2">Flight Number: <span class="text-danger">787</span></p>
-                                      <p class="mb-0 mx-2">- </p>
-                                      <p class="mb-0 mx-2"> Airplane : <span class="clr-tertiary-500">Boeing 787</span>
-                                      </p>
-                                      <p class="mb-0 mx-2">- </p>
-                                      
-                                      <p class="mb-0"> Travel Class: <span class="clr-primary-300">Economy</span>
-                                      </p>
-                                    </div>
-                                    <div class="hr-dashed my-5"></div>
                                   </div>
+                                    {{-- خط الطيران - نوع الطيارة - درجة الرحلة-  رقم الرحلة  --}}
+                                    <div class="flight-card__info my-2 d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}}  p-3" style="background-color: #f7f7fe; border-radius: 0.5rem; min-height: 24px">
+                                      <p dir="{{app()->getLocale() == "ar" ? "rtl" : ""}}" class="mb-0">{{__("strings.flight_number")}} : <span class="text-danger">{{$segment->number}}</span></p>
+                                      @php
+                                          $segmentCarrierCode = $segment->aircraft->code;
+                                      @endphp
+                                      <p dir="{{app()->getLocale() == "ar" ? "rtl" : ""}}" class="mb-0 "> {{__("strings.aircraftName")}} : <span class="clr-tertiary-500">{{$Data->dictionaries->aircraft->$segmentCarrierCode}}</span></p>
+                                      <p dir="{{app()->getLocale() == "ar" ? "rtl" : ""}}" class="mb-0 d-none"> {{__("strings.travelClass")}} : <span class="clr-primary-300">Economy</span>
+                                      </p>
+                                    </div>
+                                    <div class="hr-dashed w-100"></div>
+                                  </div>
+                              @endforeach
                             @endforeach
                         </div>
                         {{-- بيانات التوقف  --}}
