@@ -56,6 +56,7 @@ class FlightController extends Controller
                 return dd($response,"error");
             }
     }
+
     public function search(Request $request)
     {
         
@@ -102,6 +103,65 @@ class FlightController extends Controller
                 } else {
                     return dd($response,"error");
                 }
+       
+    }
+
+    function bookFlight(Request $request) {
+        if (session()->has("data")) {
+            $data = session()->get("data");
+       
+            foreach ($data->data as $flight) {
+
+                if ($flight->id == $request->id) {
+
+                     $token = $this->getToken_Amadeus();
+
+                    $postData = [
+                        "data" => [
+                            "type" => "flight-offers-pricing",
+                            "flightOffers" => [
+                                $flight
+                            ]
+                        ],
+                    ];
+                                        
+                    $curl = curl_init();
+
+                    curl_setopt_array($curl, array(
+                        CURLOPT_URL => "https://test.api.amadeus.com/v1/shopping/flight-offers/pricing",
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_ENCODING => '',
+                        CURLOPT_MAXREDIRS => 10,
+                        CURLOPT_TIMEOUT => 0,
+                        CURLOPT_FOLLOWLOCATION => true,
+                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                        CURLOPT_CUSTOMREQUEST => 'POST',
+                        CURLOPT_POSTFIELDS => json_encode($postData),
+                        CURLOPT_HTTPHEADER => array(
+                            "Authorization: Bearer $token",
+                            'Content-Type: application/json',
+                        ),
+                    ));
+
+                    $response = json_decode(curl_exec($curl));
+                    
+                    if(isset($response->data)) {
+
+                        $flight = $response->data->flightOffers[0];
+                        return view("flight-details", ["Data"=> $data, "flight"=>$flight]);
+
+                    } else {
+                        return dd("No Data Founded");
+                    }
+
+
+
+                
+                }
+            }
+        } else {
+            abort(404);
+        }
        
     }
 

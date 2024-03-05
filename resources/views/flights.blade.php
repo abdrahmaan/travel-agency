@@ -385,86 +385,7 @@
                               @endforeach
                             @endforeach
                         </div>
-                        {{-- بيانات التوقف  --}}
-                        <div class="flight-card d-none bg-neutral-0 border-dashed rounded-4">
-                            <div class="flight-card__body d-flex flex-column gap-6 px-4 px-sm-6 py-6 flex-grow-1">
-                              <div class="flight-card__schedule d-md-flex gap-6">
-                                <div class="d-none flex-column gap-3 gap-md-7 text-center text-md-start flex-grow-1">
-                                  <div class="d-grid place-content-center w-15 h-15 rounded-circle bg-neutral-0 box-shadow mx-auto ms-md-0">
-                                    <img src="assets/img/brand-11.png" alt="image" class="img-fluid object-fit-contain">
-                                  </div>
-                                  <p class="mb-0 fw-medium"> Delta Air Lines </p>
-                                </div>
-                                <div class="d-flex flex-md-column justify-content-between  gap-2 my-6 my-md-0 flex-grow-1">
-                                  <span class="d-block clr-primary-300"> From </span>
-                                  <h4 class="mb-0"> 12:40 PM <br> <span class="text-primary" style="font-size: 13px;"> 30-1-2024 </span> </h4>
-                                  <span class="d-block clr-neutral-700"> New York </span>
-                                  <span class="d-block clr-neutral-700"> Terminal: 5 </span>
-                                </div>
-                                <div class="d-flex flex-column gap-2 text-center flex-grow-1">
-                                  <div class="d-grid place-content-center w-12 h-12 box-shadow rounded-circle mx-auto">
-                                    <div class="d-grid place-content-center w-10 h-10 bg-primary-50 clr-primary-300 rounded-circle">
-                                      <span class="material-symbols-outlined mat-icon"> flight_takeoff </span>
-                                    </div>
-                                  </div>
-                                  <span class="d-block fw-medium"> Non-stop </span>
-                                  <span class="d-block clr-neutral-500"> 02h 15 min </span>
-                                </div>
-                                <div class="d-flex flex-md-column  gap-2 my-6 my-md-0 flex-grow-1">
-                                  <span class="d-block clr-primary-300"> To </span>
-                                  <h4 class="mb-0"> 12:40 PM <br> <span class="text-primary" style="font-size: 13px;"> 30-1-2024 </span> </h4>
-                                  <span class="d-block clr-neutral-700"> London </span>
-                                </div>
-                              </div>
-                              <div class="flight-card__info d-flex justify-content-center text-center p-3" style="background-color: #f7f7fe; border-radius: 0.5rem; min-height: 24px">
-                                <p class="mb-0 mx-2">Flight Number: <span class="text-danger">787</span></p>
-                                <p class="mb-0 mx-2">- </p>
-                                <p class="mb-0 mx-2"> Airplane : <span class="clr-tertiary-500">Boeing 787</span>
-                                </p>
-                                <p class="mb-0 mx-2">- </p>
-                                
-                                <p class="mb-0"> Travel Class: <span class="clr-primary-300">Economy</span>
-                                </p>
-                              </div>
-                              <div class="hr-dashed my-5"></div>
-
-                            </div>
-                            <div class="flight-card__body d-none d-flex flex-column gap-6 px-4 px-sm-6 py-6 flex-grow-1">
-                              <div class="flight-card__schedule d-md-flex gap-6">
-                                <div class="d-none  ">
-                                  <div class="d-none place-content-center w-15 h-15 rounded-circle bg-neutral-0 box-shadow mx-auto ms-md-0">
-                                    <img src="assets/img/brand-11.png" alt="image" class="img-fluid object-fit-contain">
-                                  </div>
-                                  <p class="mb-0 fw-medium"> Delta Air Lines </p>
-                                </div>
-                                <div class="d-flex flex-md-column justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
-                                  <span class="d-block clr-primary-300"> From </span>
-                                  <h4 class="mb-0"> 12:10 am </h4>
-                                  <span class="d-block clr-neutral-700"> New York </span>
-                                </div>
-                                <div class="d-flex flex-column gap-2 text-center flex-grow-1">
-                                  <div class="d-grid place-content-center w-12 h-12 box-shadow rounded-circle mx-auto">
-                                    <div class="d-grid place-content-center w-10 h-10 bg-primary-50 clr-primary-300 rounded-circle">
-                                      <span class="material-symbols-outlined mat-icon"> flight_takeoff </span>
-                                    </div>
-                                  </div>
-                                  <span class="d-block fw-medium"> Non-stop </span>
-                                  <span class="d-block clr-neutral-500"> 02h 15 min </span>
-                                </div>
-                                <div class="d-flex flex-md-column justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
-                                  <span class="d-block clr-primary-300"> To </span>
-                                  <h4 class="mb-0"> 07:20 am </h4>
-                                  <span class="d-block clr-neutral-700"> London </span>
-                                </div>
-                              </div>
-                              <div class="flight-card__info text-center">
-                                <p class="mb-0"> Airplane : <span class="clr-tertiary-500">Boeing 787</span>
-                                </p>
-                                <p class="mb-0"> Travel Class: <span class="clr-primary-300">Economy</span>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
+                     
                     </div>
                         {{--سعر الرحلة  --}}
                       <div class="flight-card__footer d-md-flex flex-column justify-content-center bg-primary-5p px-4 px-sm-6 py-6 text-center text-md-start">
@@ -473,7 +394,8 @@
                           <h2 class="mb-0 clr-neutral-700"> EGP {{$flight->price->grandTotal}} </h2>
                           <span class="d-inline-block fs-14 clr-primary-300"> 20% خصم </span>
                         </div>
-                        <a target="_blank" href="/{{app()->getLocale()}}/flight-book/{{$flight->price->grandTotal}}" class="btn btn-outline-primary py-3 px-6 rounded-pill d-inline-flex align-items-center gap-1 fw-semibold justify-content-center"> {{__("strings.flight_book_btn")}} </a>
+                        <a  href="/{{app()->getLocale()}}/flight-book/{{$flight->id}}" class="btn btn-outline-primary py-3 px-6 rounded-pill d-inline-flex align-items-center gap-1 fw-semibold justify-content-center my-3"> {{__("strings.flight_book_btn")}} </a>
+                        <a target="_blank" href="/{{app()->getLocale()}}/flight-pay/{{$flight->price->grandTotal}}" class="btn btn-outline-primary py-3 px-6 rounded-pill d-inline-flex align-items-center gap-1 fw-semibold justify-content-center"> {{__("strings.flight_pay_btn")}} </a>
                       </div>
                     </div>
                   </div>

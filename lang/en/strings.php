@@ -74,6 +74,8 @@ return [
         "terminal" => "Terminal",
         "flight_btn" => "Flight Details",
         "flight_book_btn" => "Book Now",
+        "flight_pay_btn" => "Pay Now",
+
 
 
     // *******************************************************************
