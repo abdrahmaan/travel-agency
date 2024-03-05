@@ -296,7 +296,7 @@
                         @foreach ($flight->itineraries as $flight_itineraries)
 
                                {{-- من - عدد الوقفات - إلى --}}
-                        <div class="flight-card__schedule d-flex  {{app()->getLocale() == "ar" ? "flex-md-row-reverse" : ""}} gap-6">
+                        <div class="flight-card__schedule d-flex  {{app()->getLocale() == "ar" ? "flex-row-reverse" : ""}} gap-6">
                             {{-- من --}}
                             <div class="d-flex flex-column  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start"}} justify-content-between gap-2 my-6 my-md-0 flex-grow-1">
                                 <span class="d-block clr-primary-300"> {{__('strings.flight_from')}} </span>
