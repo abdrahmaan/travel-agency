@@ -23,24 +23,26 @@
         <div class="">
           <form action="/{{app()->getLocale()}}/flight-search" method="GET">
             <div class="property-search p-6 rounded-3 bg-neutral-0">
-              <ul class="list list-row justify-content-end flex-wrap align-items-center gap-6 mb-6">
-                <li>
-                  <div class="d-flex align-items-center gap-2">
-                    <input class="custom-radio custom-radio--primary-300" type="radio" value="one-way" name="property-type" id="one-way">
-                    <label class="d-inline-block fs-18 fw-medium cursor-pointer" for="one-way"> One Way </label>
+              <ul class="list list-row {{app()->getLocale() == "ar" ? "justify-content-end" : "justify-content-start"}} flex-wrap align-items-center gap-6 mb-6">
+                <li class="d-flex">
+                  <div class="d-flex {{app()->getLocale() == "ar" ? "flex-row-reverse" : ""}} align-items-center gap-2">
+                    <input class="custom-radio custom-radio--primary-300" checked type="radio" value="oneWay" name="tripType" id="oneWay">
+                    <label class="d-block m-0 fs-18 fw-medium cursor-pointer" for="oneWay"> {{__("strings.oneWay")}} </label>
+                    
                   </div>
+                 
                 </li>
                 <li>
-                  <div class="d-flex align-items-center gap-2">
-                    <input class="custom-radio custom-radio--primary-300" type="radio" name="property-type" id="round-trip">
-                    <label class="d-inline-block fs-18 fw-medium cursor-pointer" for="round-trip"> Round Trip </label>
+                  <div class="d-flex {{app()->getLocale() == "ar" ? "flex-row-reverse" : ""}} align-items-center gap-2">
+                    <input class="custom-radio custom-radio--primary-300" value="roundTrip" type="radio" name="tripType" id="roundTrip">
+                    <label class="d-inline-block m-0 fs-18 fw-medium cursor-pointer" for="roundTrip"> {{__("strings.roundTrip")}} </label>
                   </div>
                 </li>
               </ul>
               <div class="property-search__content d-flex flex-wrap {{app()->getLocale() == "ar" ? "justify-content-start flex-row-reverse" : "justify-content-start" }} align-items-end gap-4">
-                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column flex-grow-1  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.origin")}}</h5>
-                  <div class="property-search__select property-search__col rounded-pill d-flex {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} align-items-center gap-2 px-6">
+                  <div class="property-search__select w-100 property-search__col rounded-pill d-flex {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> distance </span>
                     <select name="originLocation" class="form-select text-center" aria-label="Default select example">
                       <option value="BKK">Bankok</option>
@@ -51,9 +53,9 @@
                     </select>
                   </div>
                 </div>
-                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column flex-grow-1  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.destination")}}</h5>
-                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
+                  <div class="property-search__select w-100 property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> distance </span>
                     <select name="destination" class="form-select text-center" aria-label="Default select example">
                       <option value="BKK">Bankok</option>
@@ -64,17 +66,26 @@
                     </select>
                   </div>
                 </div>
-                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column flex-grow-1  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.departureDate")}}</h5>
-                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
+                  <div class="property-search__select w-100 property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon d-none"> event </span>
                     <input name="departureDate" class="form-control border-0 py-3" type="date" style="background-color: #f9f9fe">
                    
                   </div>
                 </div>
-                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                {{-- Return Date --}}
+                <div id="search" class="d-flex d-none returnDate flex-column flex-grow-1  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                  <h5 class="mb-2" style="font-size: 15px">{{__("strings.returnDate")}}</h5>
+                  <div class="property-search__select w-100 property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
+                    <span class="material-symbols-outlined mat-icon d-none"> event </span>
+                    <input name="returnDate" class="form-control border-0 py-3" type="date" style="background-color: #f9f9fe">
+                   
+                  </div>
+                </div>
+                <div id="search" class="d-flex flex-column flex-grow-1  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.adults")}}</h5>
-                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
+                  <div class="property-search__select w-100 property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> person </span>
                     <select name="adults" class="form-select text-center" aria-label="Default select example">
                       <option value="1">1</option>
@@ -86,9 +97,9 @@
                     </select>
                   </div>
                 </div>
-                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column flex-grow-1  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.childrens")}}</h5>
-                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
+                  <div class="property-search__select w-100 property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> <span class="material-symbols-outlined">
                       escalator_warning
                       </span> </span>
@@ -103,9 +114,9 @@
                     </select>
                   </div>
                 </div>
-                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column flex-grow-1 {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.infants")}}</h5>
-                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
+                  <div class="property-search__select w-100 property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon">
                        <span class="material-symbols-outlined">
                          breastfeeding
@@ -123,9 +134,9 @@
                   </div>
                 </div>
                
-                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column flex-grow-1  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.travelClass")}}</h5>
-                  <div class="property-search__select property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
+                  <div class="property-search__select w-100 property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6">
                     <span class="material-symbols-outlined mat-icon"> flight </span>
                     <select name="travelClass" class="form-select text-center" aria-label="Default select example">
                       <option value="ECONOMY">ECONOMY</option>
@@ -135,7 +146,7 @@
                     </select>
                   </div>
                 </div>
-                <div id="search" class="d-flex flex-column {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
+                <div id="search" class="d-flex flex-column  {{app()->getLocale() == "ar" ? "align-items-end" : "align-items-start" }}">
                   <h5 class="mb-2" style="font-size: 15px">{{__("strings.maxPrice")}}</h5>
                   <div class="property-search__price property-search__col rounded-pill {{app()->getLocale() == "ar" ? "flex-row-reverse" : "" }} d-flex align-items-center gap-2 px-6 py-3">
                     <div class="d-flex gap-2 align-items-center">
@@ -803,14 +814,40 @@
 
 @section('css')
 
-<style>
+  <style>
 
-  @media (max-width: 768px){
-    #search{
-      width: 100% !important;
+    @media (max-width: 768px){
+      #search{
+        width: 100% !important;
+      }
     }
-  }
 
-</style>
+  </style>
     
+@endsection
+
+
+@section('script')
+    <script> 
+    
+        let radioRoundTrip = document.querySelector("input#roundTrip");
+        let radioOneWay = document.querySelector("input#oneWay");
+
+        let returnDateInput = document.querySelector("div.returnDate");
+
+        radioRoundTrip.addEventListener("click",(e)=>{
+          if (e.target.checked == true) {
+            returnDateInput.classList.contains("d-none") ? returnDateInput.classList.remove("d-none") : null;
+          } 
+        });
+
+        radioOneWay.addEventListener("click",(e)=>{
+          console.log(e.target.value);
+          if (e.target.checked == true) {
+            returnDateInput.classList.contains("d-none") ? null : returnDateInput.classList.add("d-none");
+          } 
+        });
+
+    
+    </script>
 @endsection

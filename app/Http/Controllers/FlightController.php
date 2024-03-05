@@ -46,29 +46,34 @@ class FlightController extends Controller
     {
 
          if(session()->has("data")){
-                $response = session()->get("data");
 
+               $response = session()->get("data");
                 
-                 return view("flights", ["Data" => $response]);
+             return view("flights", ["Data" => $response]);
         } else {
             
         
             $token = $this->getToken_Amadeus();
 
+            $tripType = $request->tripType;
+
             $origin = $request->originLocation;
             $destination = $request->destination;
             $departureDate = $request->departureDate;
+            $returnDate =  $request->returnDate;
             $adults = intval($request->adults);
             $childrens = intval($request->childrens);
             $infants = intval($request->infants);
             $travelClass = $request->travelClass;
             $maxPrice = intval($request->maxPrice);
 
-       
+            $oneWay_url = "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=$origin&destinationLocationCode=$destination&departureDate=$departureDate&adults=$adults&children=$childrens&infants=$infants&travelClass=$travelClass&maxPrice=$maxPrice&max=5&currencyCode=EGP";
+            $roundTrip_url = "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=$origin&destinationLocationCode=$destination&departureDate=$departureDate&returnDate=$returnDate&adults=$adults&children=$childrens&infants=$infants&travelClass=$travelClass&maxPrice=$maxPrice&max=5&currencyCode=EGP";
+               
                 $curl = curl_init();
 
                 curl_setopt_array($curl, array(
-                    CURLOPT_URL => "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=$origin&destinationLocationCode=$destination&departureDate=$departureDate&adults=$adults&children=$childrens&infants=$infants&travelClass=$travelClass&maxPrice=$maxPrice&max=5&currencyCode=EGP",
+                    CURLOPT_URL => $tripType == "roundTrip" ? $roundTrip_url : $oneWay_url,
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_ENCODING => '',
                     CURLOPT_MAXREDIRS => 10,
@@ -89,9 +94,9 @@ class FlightController extends Controller
                     return view("flights", ["Data" => $response]);
                     
                 } else {
-                    return dd("No Data Founded");
+                    return dd($response,"error");
                 }
-        }
+       }
     }
 
     public function payFlight(Request $request){

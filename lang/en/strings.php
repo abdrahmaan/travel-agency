@@ -28,11 +28,15 @@ return [
         "origin"=> "Origin Location",
         "destination"=> "Destination",
         "departureDate"=> "Departure Date",
+        "returnDate"=> "ٌReturn Date",
+
         "adults"=> "Adults",
         "childrens"=> "Childrens",
         "infants"=> "Infants",
         "travelClass"=> "Travel Class",
         "maxPrice"=> "Max Price",
+        "oneWay"=> "One Way",
+        "roundTrip"=> "Round Trip",
         // Work Proccess Section
         "work_head" => "Work Process",
         "work_title" => "How to Book Your Airline Tickets: A Step-by-Step Guide",
