@@ -42,18 +42,22 @@ class FlightController extends Controller
         //
     }
 
-    public function search(Request $request)
-    {
 
+    public function refresh() {
          if(session()->has("data")){
 
-               $response = session()->get("data");
+              $response = session()->get("data");
                 
-             return view("flights", ["Data" => $response]);
-        } else {
+            return view("flights", ["Data" => $response]);
+            } else {
             
+                return dd($response,"error");
+            }
+    }
+    public function search(Request $request)
+    {
         
-            $token = $this->getToken_Amadeus();
+          $token = $this->getToken_Amadeus();
 
             $tripType = $request->tripType;
 
@@ -96,7 +100,7 @@ class FlightController extends Controller
                 } else {
                     return dd($response,"error");
                 }
-       }
+       
     }
 
     public function payFlight(Request $request){

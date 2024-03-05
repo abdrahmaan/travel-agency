@@ -21,7 +21,8 @@
           <p dir="" class="mb-10 fs-18"> {{__("strings.home_third")}} </p>
         </div>
         <div class="">
-          <form action="/{{app()->getLocale()}}/flight-search" method="GET">
+          <form action="/{{app()->getLocale()}}/flight-search" method="POST">
+            @csrf
             <div class="property-search p-6 rounded-3 bg-neutral-0">
               <ul class="list list-row {{app()->getLocale() == "ar" ? "justify-content-end" : "justify-content-start"}} flex-wrap align-items-center gap-6 mb-6">
                 <li class="d-flex">
